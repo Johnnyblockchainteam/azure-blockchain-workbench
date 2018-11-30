@@ -1,0 +1,257 @@
+{
+  "ApplicationName": "ceidbc",
+  "DisplayName": "CEID blockchain",
+  "Description": "...",
+  "ApplicationRoles": [
+    {
+      "Name": "Tracker",
+      "Description": "..."
+    }
+  ],
+  "Workflows": [
+    {
+      "Name": "ceidbc",
+      "DisplayName": "CEID blockchain",
+      "Description": "...",
+      "Initiators": [ "Tracker" ],
+      "StartState":  "Created",
+      "Properties": [
+        {
+          "Name": "State",
+          "DisplayName": "State",
+          "Description": "Holds the state of the contract",
+          "Type": {
+            "Name": "state"
+          }
+        },
+		{
+          "Name": "Tracker",
+          "DisplayName": "Tracker",
+          "Description": "...",
+          "Type": {
+            "Name": "Tracker"
+          }
+        },
+        {
+          "Name": "RegistrationPlate",
+          "DisplayName": "Registration Plate",
+          "Description": "...",
+          "Type": {
+            "Name": "string"
+          }
+        },
+        {
+          "Name": "VIN",
+          "DisplayName": "VIN",
+          "Description": "...",
+          "Type": {
+            "Name": "string"
+          }
+        },
+        {
+          "Name": "EngineCode",
+          "DisplayName": "Engine Code",
+          "Description": "...",
+          "Type": {
+            "Name": "string"
+          }
+        },
+        {
+          "Name": "Mileage",
+          "DisplayName": "Mileage",
+          "Description": "...",
+          "Type": {
+            "Name": "int"
+          }
+        },
+		{
+          "Name": "InspectionDate",
+          "DisplayName": "Inspection Date",
+          "Description": "...",
+          "Type": {
+            "Name": "string"
+          }
+        },
+		{
+          "Name": "Record",
+          "DisplayName": "Record",
+          "Description": "...",
+          "Type": {
+            "Name": "string"
+          }
+        }
+      ],
+      "Constructor": {
+		  "Parameters": [
+				{
+				  "Name": "registrationplate",
+				  "Description": "...",
+				  "DisplayName": "Registration Plate",
+				  "Type": {
+					"Name": "string"
+				  }
+				},
+				{
+				  "Name": "vin",
+				  "Description": "...",
+				  "DisplayName": "VIN",
+				  "Type": {
+					"Name": "string"
+				  }
+				},
+				{
+				  "Name": "enginecode",
+				  "Description": "...",
+				  "DisplayName": "Engine Code",
+				  "Type": {
+					"Name": "string"
+				  }
+				},
+				{
+				  "Name": "mileage",
+				  "Description": "...",
+				  "DisplayName": "Mileage",
+				  "Type": {
+					"Name": "int"
+				  }
+				},
+				{
+				  "Name": "inspectiondate",
+				  "Description": "...",
+				  "DisplayName": "Inspection Date",
+				  "Type": {
+					"Name": "string"
+				  }
+				},
+				{
+				  "Name": "record",
+				  "Description": "...",
+				  "DisplayName": "Record",
+				  "Type": {
+					"Name": "string"
+				  }
+				}
+			]
+      },
+	  "Functions": [
+        {
+          "Name": "NewRecord",
+          "DisplayName": "New Record",
+          "Description": "...",
+          "Parameters": [
+            {
+			  "Name": "registrationplate",
+			  "DisplayName": "Registration Plate",
+			  "Description": "...",
+			  "Type": {
+				"Name": "string"
+			  }
+			},
+			{
+			  "Name": "vin",
+			  "DisplayName": "VIN",
+			  "Description": "...",
+			  "Type": {
+				"Name": "string"
+			  }
+			},
+			{
+			  "Name": "enginecode",
+			  "DisplayName": "Engine Code",
+			  "Description": "...",
+			  "Type": {
+				"Name": "string"
+			  }
+			},
+			{
+			  "Name": "mileage",
+			  "DisplayName": "Mileage",
+			  "Description": "...",
+			  "Type": {
+				"Name": "int"
+			  }
+			},
+			{
+			  "Name": "inspectiondate",
+			  "DisplayName": "Inspection Date",
+			  "Description": "...",
+			  "Type": {
+				"Name": "string"
+			  }
+			},
+			{
+			  "Name": "record",
+			  "DisplayName": "Record",
+			  "Description": "...",
+			  "Type": {
+				"Name": "string"
+			  }
+			}
+          ]
+        },
+		{
+          "Name": "Scrap",
+          "DisplayName": "Scrap",
+          "Description": "...",
+          "Parameters": [
+          ]
+        }
+	  ],
+	  "States": [
+		{
+          "Name": "Created",
+          "DisplayName": "Created",
+          "Description": "...",
+          "PercentComplete": 10,
+          "Value": 0,
+          "Style": "Success",
+          "Transitions": [
+			{
+              "AllowedRoles": ["Tracker"],
+              "AllowedInstanceRoles": ["Tracker"],
+              "Description": "...",
+              "Function": "NewRecord",
+              "NextStates": [ "InProgress" ],
+              "DisplayName": "New Record"
+            }
+		  ]
+		},
+		{
+          "Name": "InProgress",
+          "DisplayName": "InProgress",
+          "Description": "...",
+          "PercentComplete": 50,
+          "Value": 1,
+          "Style": "Success",
+          "Transitions": [
+			{
+              "AllowedRoles": ["Tracker" ],
+              "AllowedInstanceRoles": ["Tracker" ],
+              "Description": "...",
+              "Function": "NewRecord",
+              "NextStates": ["InProgress"],
+              "DisplayName": "New Record"
+            },
+			{
+              "AllowedRoles": ["Tracker" ],
+              "AllowedInstanceRoles": ["Tracker" ],
+              "Description": "...",
+              "Function": "Scrap",
+              "NextStates": ["Scrapped"],
+              "DisplayName": "Scrap"
+            }
+		  ]
+		},
+		{
+          "Name": "Scrapped",
+          "DisplayName": "Scrapped",
+          "Description": "...",
+          "PercentComplete": 100,
+          "Value": 2,
+          "Style": "Success",
+          "Transitions": []
+		}
+	  ]  
+	}
+   ]
+}
