@@ -4,7 +4,19 @@
   "Description": "...",
   "ApplicationRoles": [
     {
-      "Name": "Tracker",
+      "Name": "Buyer",
+      "Description": "..."
+    },
+	{
+      "Name": "Dealer",
+      "Description": "..."
+    },
+	{
+      "Name": "Manufacturer",
+      "Description": "..."
+    },
+	{
+      "Name": "Admin",
       "Description": "..."
     }
   ],
@@ -13,7 +25,7 @@
       "Name": "ceidbc",
       "DisplayName": "CEID blockchain",
       "Description": "...",
-      "Initiators": [ "Tracker" ],
+      "Initiators": [ "Buyer", "Dealer", "Manufacturer", "Admin" ],
       "StartState":  "Created",
       "Properties": [
         {
@@ -25,11 +37,35 @@
           }
         },
 		{
-          "Name": "Tracker",
-          "DisplayName": "Tracker",
+          "Name": "Buyer",
+          "DisplayName": "Buyer",
           "Description": "...",
           "Type": {
-            "Name": "Tracker"
+            "Name": "Buyer"
+          }
+        },
+		{
+          "Name": "Dealer",
+          "DisplayName": "Dealer",
+          "Description": "...",
+          "Type": {
+            "Name": "Dealer"
+          }
+        },
+		{
+          "Name": "Manufacturer",
+          "DisplayName": "Manufacturer",
+          "Description": "...",
+          "Type": {
+            "Name": "Manufacturer"
+          }
+        },
+		{
+          "Name": "Admin",
+          "DisplayName": "Admin",
+          "Description": "...",
+          "Type": {
+            "Name": "Admin"
           }
         },
         {
@@ -207,8 +243,8 @@
           "Style": "Success",
           "Transitions": [
 			{
-              "AllowedRoles": ["Tracker"],
-              "AllowedInstanceRoles": ["Tracker"],
+              "AllowedRoles": [ "Buyer", "Dealer", "Manufacturer", "Admin" ],
+              "AllowedInstanceRoles": [ "Buyer", "Dealer", "Manufacturer", "Admin" ],
               "Description": "...",
               "Function": "NewRecord",
               "NextStates": [ "InProgress" ],
@@ -225,16 +261,16 @@
           "Style": "Success",
           "Transitions": [
 			{
-              "AllowedRoles": ["Tracker" ],
-              "AllowedInstanceRoles": ["Tracker" ],
+              "AllowedRoles": [ "Buyer", "Dealer", "Manufacturer", "Admin" ],
+              "AllowedInstanceRoles": [ "Buyer", "Dealer", "Manufacturer", "Admin" ],
               "Description": "...",
               "Function": "NewRecord",
               "NextStates": ["InProgress"],
               "DisplayName": "New Record"
             },
 			{
-              "AllowedRoles": ["Tracker" ],
-              "AllowedInstanceRoles": ["Tracker" ],
+              "AllowedRoles": [ "Buyer", "Dealer", "Manufacturer", "Admin" ],
+              "AllowedInstanceRoles": [ "Buyer", "Dealer", "Manufacturer", "Admin" ],
               "Description": "...",
               "Function": "Scrap",
               "NextStates": ["Scrapped"],

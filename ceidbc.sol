@@ -28,6 +28,10 @@ contract ceidbc is WorkbenchBase('ceidbc', 'ceidbc')
 	
 	//List of properties
 	StateType public  State;
+	address public  Buyer;
+	address public  Dealer;
+	address public  Manufacturer;
+	address public  Admin;
 	address public  Tracker;
 	string public  RegistrationPlate;
 	string public  VIN;
